@@ -6,8 +6,8 @@ function Search() {
     var resp = 0;
     xhr.addEventListener('load',function(){
         resp = JSON.parse(this.responseText)
-        console.log(resp.graphql.user.full_name);\
-        document.getElementById('Enter').innerHTML += `<div> <p>${resp.graphql.user.full_name}</div>`;
+        console.log(resp.graphql.user.full_name);
+        document.getElementById('Enter').innerHTML += `<div> <p>${resp.graphql.user.full_name} : ${resp.graphql.user.edge_followed_by.count}</div>`;
     })
 
     xhr.addEventListener('error',function(){
