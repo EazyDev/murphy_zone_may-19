@@ -113,7 +113,7 @@ function Search() {
       //Appending all data to Enter div
       console.log(fullname)
 
-        personData.push({name:fullname,nyss_score:Math.floor((instafollowers*0.004)+(youtubefollowers*0.0015)+(youtubeviews*0.0015)+(twitterfollowers*0.003)/10000),instagram:instafollowers,twitter:twitterfollowers,youtube:youtubefollowers})
+        personData.push({name:fullname,nyss_score:Math.ceil((instafollowers*0.4)+(youtubefollowers*0.00015)+(youtubeviews*0.0000015)+(twitterfollowers*0.3)),twitter:twitterfollowers,youtube:youtubefollowers,instagram:instafollowers})
         loadTableData(personData)
 
     }
@@ -142,7 +142,7 @@ function loadTableData(personData){  //this will allows us to enter the data to 
 
     for(let person of personData){
         dataHtml += `<div><tr><td>${person.name}</td><td>${person.nyss_score}</td>
-            <td>${person.instagram}</td><td>${person.twitter}</td><td>${person.youtube}</td></tr></div>`;
+            <td>${person.twitter}</td><td>${person.youtube}</td><td>${person.instagram}</td></tr></div>`;
     }
     //console.log(dataHtml);
 
