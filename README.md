@@ -14,4 +14,4 @@ Technologies Used
 - Javascript
 - AWS Hosting at 13.58.192.172 
 - Youtube / Instagram / Twitter API
-- 
+
