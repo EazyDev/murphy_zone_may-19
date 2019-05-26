@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<style>
+
+    td,th{
+        font-family: 'Comic Sans MS', 'Arial Narrow', Arial, sans-serif;
+        border: 2px solid #eeeeee;
+        padding:10px;
+    }
+
+    th{
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    table{
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    tr:nth-child(even){
+        background-color: #dddddd;
+    }
+
+    tr:hover {
+        background-color:red;
+        color:white;
+    }
+
+</style>
+
+<script>
+    let sortDirection = false;
+    let personData = [
+    {name:"Rynamo",nyss_score: 9,instagram:43424,twitter:423424,youtube:786756},
+    {name:"Magik",nyss_score: 2,instagram:5645,twitter:424,youtube:7756},
+    {name:"Villian",nyss_score: 6,instagram:41124,twitter:4224,youtube:6756},
+    {name:"Duler",nyss_score: 9,instagram:312424,twitter:425424,youtube:72756},
+    {name:"Vasco",nyss_score: 3,instagram:4567,twitter:46724,youtube:7423756}
+    ];
+    window.onload = function(){
+        loadTableData(personData);
+    }
+
+    loadTableData(personData);
+
+    function loadTableData(personData){  //this will allows us to enter the data to table
+        let tableBody = document.getElementById('tableData');
+        let dataHtml="";
+
+        for(let person of personData){
+            dataHtml += `<tr><td>${person.name}</td><td>${person.nyss_score}</td>
+                <td>${person.instagram}</td><td>${person.twitter}</td><td>${person.youtube}</td></tr>`;
+        }
+        //console.log(dataHtml);
+
+        tableBody.innerHTML=dataHtml;
+    }
+
+    function sortColumn(columnName){
+        const dataType = typeof personData[0][columnName];
+        //console.log(dataType);
+        sortDirection = !sortDirection;
+
+        switch(dataType){
+            case 'number':sortNumberColumn(sortDirection,columnName);
+            break;
+            //case 'string':sortStringColumn(sortDirection,columnName);
+        }
+        //console.log(personData);
+        loadTableData(personData);
+    }
+
+    function sortNumberColumn(sort,columnName){
+        personData = personData.sort((p1,p2) => {
+            return sort ? p1[columnName] - p2[columnName] : p2[columnName] - p1[columnName]
+        });
+    }
+
+    // function sortStringColumn((sort,columnName){
+    //     personData = personData.sort((p1,p2) => {
+    //         return sort ? p1[columnName] - p2[columnName] : p2[columnName] - p1[columnName]
+    //     });
+    // }
+
+</script>
+
+<body>
+
+    <table>
+        <thread>
+        <tr>
+            <th onclick="sortColumn('name')">name</th>
+            <th onclick="sortColumn('nyss_score')">nyss_score</th>
+            <th onclick="sortColumn('instagram')">twitter</th>
+            <th onclick="sortColumn('twitter')">youtube</th>
+            <th onclick="sortColumn('youtube')">instagram</th>
+        </tr>
+        </thread>
+
+        <tbody id="tableData"></tbody>
+    </table>
+
+</body>
+</html>

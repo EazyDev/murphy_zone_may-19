@@ -1,0 +1,5 @@
+Twitter : https://cors-anywhere.herokuapp.com/https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=${username}
+
+Youtube : https://www.googleapis.com/youtube/v3/channels?part=statistics&id=[a channel ID goes here]&key=[AIzaSyB0UaawDVmtUHXPTIjkynBql-J1A6OlDbo]
+
+Instagram : https://www.instagram.com/${username}/?__a=1
