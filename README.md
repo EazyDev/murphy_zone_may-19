@@ -1,5 +1,5 @@
 # CloutBoard
-This is an crowdsourced application that tracks the digital media influence of people.
+This is a crowdsourced application that tracks the digital media influence of people.
 
 You can track according to :
  - Instagram Followers
